@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Para ti</title>
+</head>
+
+<body>
+    <div class="welcome">
+        <div class="nickname nickname--1 iridescent-text">Te amo mucho</div>
+        <div class="nickname nickname--2 iridescent-text">Mi amor</div>
+        <div class="nickname nickname--3 iridescent-text">Mi bebé</div>
+        <div class="nickname nickname--4 iridescent-text">Cosita prrrrrrreciosa</div>
+        <div class="nickname nickname--5 iridescent-text">I love u so fucking much</div>
+        <div class="nickname nickname--6 iridescent-text">Cosita hermosa</div>
+
+        <div class="sparkles" aria-hidden="true">
+            <span class="sparkle sparkle--1">✨</span>
+            <span class="sparkle sparkle--2">✨</span>
+            <span class="sparkle sparkle--3">✨</span>
+            <span class="sparkle-group sparkle-group--1">
+                <span class="sparkle">✨</span>
+                <span class="sparkle">✨</span>
+            </span>
+            <span class="sparkle sparkle--4">✨</span>
+            <span class="sparkle sparkle--5">✨</span>
+            <span class="sparkle-group sparkle-group--2">
+                <span class="sparkle">✨</span>
+                <span class="sparkle">✨</span>
+                <span class="sparkle">✨</span>
+            </span>
+            <span class="sparkle sparkle--6">✨</span>
+            <span class="sparkle sparkle--7">✨</span>
+        </div>
+
+        <div class="message">
+            <p class="message__text iridescent-text">Para ti, mi amor 💗</p>
+            <p class="message__signature iridescent-text">de tu Ojitos</p>
+        </div>
+
+        <button class="bow-button iridescent-surface iridescent-shine" id="continue-btn" type="button">
+            <span class="bow-button__icon" aria-hidden="true">🎀</span>
+            <span class="bow-button__label">Entrar</span>
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('continue-btn').addEventListener('click', function () {
+            sessionStorage.setItem('cameFromWelcome', '1');
+            window.location.href = 'flower.html';
+        });
+    </script>
+</body>
+</html>
