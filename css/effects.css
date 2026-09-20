@@ -1,0 +1,111 @@
+/* Efectos compartidos: iridiscencia rosa (tipo holograma) + brillitos ✨ */
+
+:root {
+  --iri-1: #ff8fd8;
+  --iri-2: #ffc1e3;
+  --iri-3: #d9a8ff;
+  --iri-4: #ff6fc0;
+  --iri-5: #ffe0f0;
+}
+
+@keyframes iridescent-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.iridescent-text {
+  background-image: linear-gradient(
+    120deg,
+    var(--iri-1),
+    var(--iri-3),
+    var(--iri-4),
+    var(--iri-2),
+    var(--iri-5)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: iridescent-shift 5s ease-in-out infinite;
+}
+
+.iridescent-surface {
+  background-image: linear-gradient(
+    120deg,
+    var(--iri-1),
+    var(--iri-3),
+    var(--iri-4),
+    var(--iri-2),
+    var(--iri-5)
+  );
+  background-size: 300% 300%;
+  animation: iridescent-shift 5s ease-in-out infinite;
+}
+
+/* Brillo diagonal que recorre superficies iridiscentes (botón, etc.) */
+.iridescent-shine {
+  position: relative;
+  overflow: hidden;
+}
+.iridescent-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 100%
+  );
+  transform: rotate(20deg);
+  animation: shine-sweep 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shine-sweep {
+  0% {
+    left: -60%;
+  }
+  50%,
+  100% {
+    left: 130%;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 200, 235, 0.85));
+  animation: sparkle-twinkle 2.6s ease-in-out infinite;
+}
+
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
